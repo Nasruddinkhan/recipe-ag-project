@@ -18,18 +18,21 @@
     <div class="dropdown">
       <a
         class="btn btn-secondary dropdown-toggle"
-        href="#"
         role="button"
         id="dropdownMenuLink"
         data-bs-toggle="dropdown"
         aria-expanded="false"
-          (click)="openDropDown()"
+        (click)="openDropDown()"
       >
         Manage Recipe
       </a>
-
-      <ul  [ngClass]="isShow ? 'dropdown-menu show' : 'dropdown-menu'" >
-        <li><a class="dropdown-item" href="#"  (click)="onAddToShoppingList()" >To Shopping List</a></li>
+      <!-- [ngClass]="isShow ? 'dropdown-menu show' : 'dropdown-menu'"   -->
+      <ul class="dropdown-menu" [ngClass]="isShow ? 'dropdown-menu show' : 'dropdown-menu'" >
+        <li>
+          <a class="dropdown-item"  style="cursor: pointer;"  (click)="onAddToShoppingList()"
+            >To Shopping List</a
+          >
+        </li>
         <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
         <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
       </ul>
@@ -41,13 +44,10 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-     <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let ingredient of recipe.ingredients">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
         {{ ingredient.name }} - {{ ingredient.amount }}
       </li>
     </ul>
-
   </div>
 </div>

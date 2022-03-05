@@ -8,9 +8,9 @@
   <div class="col-12">
     <div class="list-group">
       <app-recipe-item
-        *ngFor="let recipeEl of recipes"
+        *ngFor="let recipeEl of recipes;let idx= index"
         [recipe]="recipeEl"
-      
+        [index] = "idx"
       ></app-recipe-item>
     </div>
   </div>

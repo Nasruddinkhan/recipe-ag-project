@@ -21,4 +21,6 @@ export class HeaderComponent {
     showLinks(){
           this.isShowLink = !this.isShowLink
     }
+
+    
 }
