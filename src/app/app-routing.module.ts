@@ -21,8 +21,6 @@ const appRoutes: Routes = [
             {
                 path: ':id', component: RecipeDetailComponent,
             }
-           
-
         ]
     },
     { path: 'shopping-list', component: ShoppingListComponent }

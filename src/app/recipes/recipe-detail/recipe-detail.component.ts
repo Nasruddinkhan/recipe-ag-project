@@ -10,7 +10,7 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
   isShow: boolean = false;
-  id: number | undefined;
+  id!: number;
   recipe!: Recipe;
   constructor(private recipeService: RecipeService,
     private router: Router,
@@ -32,11 +32,18 @@ export class RecipeDetailComponent implements OnInit {
   onAddToShoppingList() {
     console.log(this.recipe.ingredients);
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+    this.isShow = !this.isShow
+
     
   }
 
   onEditRecipe() {
     this.router.navigate(['edit'], { relativeTo: this.route });
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+  }
+
+  onDeleteRecipe(){
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['recipes'])
   }
 }
